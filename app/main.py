@@ -11,3 +11,10 @@ async def home(request: Request):
     request=request,
     name="index.html"
 )   
+
+@app.get("/about")
+async def about(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="about.html"
+    )
