@@ -6,15 +6,16 @@
 
     <title>{% block title %}Hulma{% endblock %}</title>
 
-    
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/output.css') }}"
+    >
 </head>
 
 <body>
 
     {% block content %}
     {% endblock %}
-
-    <script src="{{ url_for('static', path='js/script.js') }}"></script>
 
 </body>
 </html>
