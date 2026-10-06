@@ -1,11 +1,266 @@
 {% extends "base.html" %}
 
-{% block title %}Hulma{% endblock %}
+{% block title %}Hulma | Portfolio AI{% endblock %}
 
 {% block content %}
+<style>
+  .nav-link {
+    position: relative;
+    display: inline-block;
+  }
 
-<h1 class="text-4xl font-bold text-blue-600">
-    Landing Page Here
-</h1>
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: #4169E1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms ease-out;
+  }
 
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .fade-in-item {
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .check-item {
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+  }
+
+  .check-item:hover {
+    transform: translateX(6px);
+    color: #111827;
+  }
+
+  .check-item:hover .check-icon {
+    transform: scale(1.12);
+  }
+
+  .hero-mascot {
+    will-change: transform;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out, box-shadow 0.3s ease-out;
+  }
+
+  .hero-mascot:hover {
+    filter: drop-shadow(0 22px 28px rgba(65, 105, 225, 0.18));
+  }
+
+  .hero-mascot.is-animating {
+    animation: wiggle 0.75s ease-in-out;
+  }
+
+  @keyframes wiggle {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-6deg) scale(1.02); }
+    50% { transform: rotate(6deg) scale(1.05); }
+    75% { transform: rotate(-4deg) scale(1.03); }
+    100% { transform: rotate(0deg) scale(1); }
+  }
+
+  .mascot-glow {
+    animation: pulseGlow 3.2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { transform: scale(1); opacity: 0.75; }
+    50% { transform: scale(1.08); opacity: 1; }
+  }
+
+  .cta-arrow {
+    display: inline-block;
+    transform: translateX(0);
+    transition: transform 0.3s ease-out;
+  }
+
+  .cta-button:hover .cta-arrow {
+    transform: translateX(5px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in-item,
+    .mascot-glow,
+    .hero-mascot {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<main class="mx-auto max-w-[1200px] px-5 pb-12 pt-6 md:px-10 md:pb-16 lg:pt-8">
+  <section class="grid min-h-[calc(100vh-120px)] items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
+    <div class="max-w-[560px]">
+      <h1 class="fade-in-item text-[2.65rem] font-black leading-[0.96] tracking-[-0.06em] text-black md:text-[3.8rem] lg:text-[4.2rem]">
+        <span class="block">Create a Professional</span>
+        <span class="block">
+          <span class="text-[#1E6FD0]">Portfolio</span>
+          <span class="text-black">with</span>
+          <span class="text-[#1E6FD0]">AI</span>
+        </span>
+      </h1>
+
+      <p class="fade-in-item mt-6 max-w-[400px] text-base leading-snug text-[#333333] md:text-[16px]">
+        Build your portfolio faster with ready-made templates and AI-powered portfolio reviews that give you personalized suggestions to improve your content.
+      </p>
+
+      <ul class="fade-in-item mt-8 space-y-3.5">
+        <li class="check-item flex items-center gap-3 text-sm font-medium text-[#4B5563]">
+          <span class="check-icon flex h-5 w-5 items-center justify-center rounded-full bg-[#EAF3FF] text-[#3B82F6] transition-all duration-300">
+            <svg viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 10.5L8.2 13.7L15 6.9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>AI Review</span>
+        </li>
+        <li class="check-item flex items-center gap-3 text-sm font-medium text-[#4B5563]">
+          <span class="check-icon flex h-5 w-5 items-center justify-center rounded-full bg-[#EAF3FF] text-[#3B82F6] transition-all duration-300">
+            <svg viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 10.5L8.2 13.7L15 6.9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>Portfolio Suggestions</span>
+        </li>
+        <li class="check-item flex items-center gap-3 text-sm font-medium text-[#4B5563]">
+          <span class="check-icon flex h-5 w-5 items-center justify-center rounded-full bg-[#EAF3FF] text-[#3B82F6] transition-all duration-300">
+            <svg viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 10.5L8.2 13.7L15 6.9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>Professional Templates</span>
+        </li>
+        <li class="check-item flex items-center gap-3 text-sm font-medium text-[#4B5563]">
+          <span class="check-icon flex h-5 w-5 items-center justify-center rounded-full bg-[#EAF3FF] text-[#3B82F6] transition-all duration-300">
+            <svg viewBox="0 0 20 20" class="h-3.5 w-3.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 10.5L8.2 13.7L15 6.9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>Easy Customization</span>
+        </li>
+      </ul>
+
+      <button class="cta-button fade-in-item mt-12 inline-flex items-center gap-3 rounded-md bg-gradient-to-r from-[#4A7BDB] to-[#2A4478] px-5 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 ease-out hover:scale-[1.05] hover:shadow-xl hover:shadow-blue-500/20 active:scale-95">
+        <span>Design a portfolio with AI</span>
+        <span class="cta-arrow text-lg">→</span>
+      </button>
+    </div>
+
+    <div class="relative flex justify-center lg:justify-end">
+      <div class="mascot-glow absolute inset-x-10 bottom-8 top-14 rounded-full bg-blue-200/70 blur-3xl"></div>
+      <div id="mascotWrap" class="hero-mascot relative w-[320px] sm:w-[360px] lg:w-[440px]" aria-label="Hulma mascot illustration" role="img">
+        <img src="{{ url_for('static', path='images/puppet.png') }}" alt="Hulma mascot waving" class="relative z-10 block h-auto w-full drop-shadow-[0_28px_35px_rgba(65,105,225,0.18)]" />
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+    });
+  }
+
+  const fadeItems = document.querySelectorAll('.fade-in-item');
+  fadeItems.forEach((item, index) => {
+    item.style.animationDelay = `${index * 100}ms`;
+  });
+
+  const mascotWrap = document.getElementById('mascotWrap');
+  const heroSection = document.querySelector('section');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion && heroSection && mascotWrap) {
+    let currentX = 0;
+    let currentY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let currentRotateX = 0;
+    let currentRotateY = 0;
+    let targetRotateX = 0;
+    let targetRotateY = 0;
+
+    heroSection.addEventListener('pointermove', (event) => {
+      const rect = heroSection.getBoundingClientRect();
+      const cx = event.clientX - rect.left;
+      const cy = event.clientY - rect.top;
+      const nx = (cx / rect.width) * 2 - 1;
+      const ny = (cy / rect.height) * 2 - 1;
+
+      targetX = nx * 15;
+      targetY = ny * 15;
+      targetRotateY = nx * 6;
+      targetRotateX = -ny * 6;
+    });
+
+    heroSection.addEventListener('pointerleave', () => {
+      targetX = 0;
+      targetY = 0;
+      targetRotateX = 0;
+      targetRotateY = 0;
+    });
+
+    function animateMascot() {
+      currentX += (targetX - currentX) * 0.12;
+      currentY += (targetY - currentY) * 0.12;
+      currentRotateX += (targetRotateX - currentRotateX) * 0.12;
+      currentRotateY += (targetRotateY - currentRotateY) * 0.12;
+
+      mascotWrap.style.transform = `translate(${currentX}px, ${currentY}px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
+      requestAnimationFrame(animateMascot);
+    }
+
+    requestAnimationFrame(animateMascot);
+  }
+
+  if (mascotWrap) {
+    mascotWrap.addEventListener('mouseenter', () => {
+      if (!prefersReducedMotion) {
+        mascotWrap.classList.remove('is-animating');
+        void mascotWrap.offsetWidth;
+        mascotWrap.classList.add('is-animating');
+      }
+    });
+
+    mascotWrap.addEventListener('click', () => {
+      mascotWrap.classList.remove('is-animating');
+      void mascotWrap.offsetWidth;
+      mascotWrap.animate(
+        [
+          { transform: mascotWrap.style.transform || 'translateY(0px)' },
+          { transform: `${mascotWrap.style.transform || 'translateY(0px)'} translateY(-16px) scale(1.03)` },
+          { transform: mascotWrap.style.transform || 'translateY(0px)' }
+        ],
+        {
+          duration: 400,
+          easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        }
+      );
+    });
+  }
+</script>
 {% endblock %}

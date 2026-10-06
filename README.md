@@ -278,7 +278,7 @@ In another terminal:
 ```bash
 cd projectbai
 source venv/bin/activate
-uvicorn backend.app.main:app --reload
+CC
 ```
 
 ---
