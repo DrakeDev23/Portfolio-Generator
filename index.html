@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hulma | Portfolio AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        color: #000;
+        font-family: 'Inter', Arial, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        color: #000;
+      }
+
+      .brand img {
+        display: block;
+        width: auto;
+        height: 44px;
+      }
+
+      .brand-text {
+        margin-left: 8px;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        position: relative;
+        display: inline-block;
+        color: #000;
+        font-size: 16px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 2px;
+        background: #4169E1;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus {
+        color: #4169E1;
+      }
+
+      .nav-links a:hover::after,
+      .nav-links a:focus::after {
+        width: 100%;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .btn-login,
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 32px;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-login {
+        background: #fff;
+        color: #000;
+        border: 1px solid #6C6CE5;
+      }
+
+      .btn-login:hover,
+      .btn-login:focus {
+        background: #EEF0FF;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(108,108,229,0.12);
+      }
+
+      .btn-primary {
+        background: #4169E1;
+        border: none;
+        color: #fff;
+        box-shadow: none;
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus {
+        background: #2F52C4;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(65,105,225,.35);
+      }
+
+      .hamburger {
+        display: none;
+        width: 44px;
+        height: 44px;
+        border: 1px solid #e5e7eb;
+        background: #fff;
+        border-radius: 8px;
+        padding: 0;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hamburger-bars {
+        width: 18px;
+        height: 12px;
+        position: relative;
+      }
+
+      .hamburger-bars span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #111827;
+        border-radius: 2px;
+      }
+
+      .hamburger-bars span:nth-child(1) { top: 0; }
+      .hamburger-bars span:nth-child(2) { top: 5px; }
+      .hamburger-bars span:nth-child(3) { top: 10px; }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        min-height: 80vh;
+      }
+
+      .hero-copy {
+        flex: 1 1 50%;
+        max-width: 560px;
+      }
+
+      .hero-copy h1 {
+        margin: 0;
+        font-size: 44px;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.04em;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.8s ease forwards;
+      }
+
+      .hero-copy p {
+        max-width: 400px;
+        margin-top: 12px;
+        margin-bottom: 0;
+        font-size: 16px;
+        line-height: 1.35;
+        color: #333;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.8s ease 0.1s forwards;
+      }
+
+      .check-list {
+        list-style: none;
+        padding: 0;
+        margin: 28px 0 0 0;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.8s ease 0.2s forwards;
+      }
+
+      .check-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #444;
+        transition: all 0.3s ease;
+      }
+
+      .check-item:hover {
+        transform: translateX(6px);
+        color: #000;
+      }
+
+      .check-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        color: #3B82F6;
+        transition: transform 0.3s ease;
+      }
+
+      .check-item:hover .check-icon {
+        transform: scale(1.2);
+      }
+
+      .cta-btn {
+        position: relative;
+        margin-top: 48px;
+        border: none;
+        background: linear-gradient(90deg, #4A7BDB, #2A4478);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 16px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUp 0.8s ease 0.3s forwards;
+      }
+
+      .cta-btn:hover,
+      .cta-btn:focus {
+        background: linear-gradient(90deg, #5b8cee, #334f9e);
+        transform: scale(1.05);
+        box-shadow: 0 18px 32px rgba(65, 105, 225, 0.2);
+      }
+
+      .cta-btn:active {
+        transform: scale(0.95);
+      }
+
+      .cta-arrow {
+        display: inline-block;
+        opacity: 0;
+        transform: translateX(-8px);
+        transition: all 0.3s ease;
+      }
+
+      .cta-btn:hover .cta-arrow,
+      .cta-btn:focus .cta-arrow {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .hero-visual {
+        position: relative;
+        flex: 1 1 45%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .glow {
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        background: #3B82F6;
+        opacity: 0.25;
+        filter: blur(60px);
+        border-radius: 50%;
+        z-index: 0;
+        animation: glowPulse 3s ease-in-out infinite;
+      }
+
+      .mascot-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 460px;
+        z-index: 1;
+        transform-style: preserve-3d;
+      }
+
+      .mascot-img {
+        display: block;
+        width: 100%;
+        max-width: 460px;
+        height: auto;
+        animation: float 4s ease-in-out infinite;
+        transition: filter 0.3s ease;
+      }
+
+      .mascot-wrap:hover .mascot-img {
+        animation: wiggle 0.75s ease-in-out;
+        filter: drop-shadow(0 0 25px rgba(59,130,246,.6));
+      }
+
+      .mascot-wrap:active .mascot-img {
+        animation: bounce 0.5s ease;
+      }
+
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(-2deg); }
+        50% { transform: translateY(-12px) rotate(2deg); }
+      }
+
+      @keyframes wiggle {
+        0% { transform: rotate(0deg) scale(1); }
+        25% { transform: rotate(-6deg) scale(1.05); }
+        50% { transform: rotate(6deg) scale(1.05); }
+        75% { transform: rotate(-4deg) scale(1.05); }
+        100% { transform: rotate(0deg) scale(1); }
+      }
+
+      @keyframes bounce {
+        0% { transform: translateY(0); }
+        40% { transform: translateY(-30px); }
+        100% { transform: translateY(0); }
+      }
+
+      @keyframes glowPulse {
+        0%, 100% { transform: scale(1); opacity: 0.25; }
+        50% { transform: scale(1.08); opacity: 0.4; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-copy h1,
+        .hero-copy p,
+        .check-list,
+        .cta-btn,
+        .mascot-img,
+        .glow {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          flex-direction: column;
+          justify-content: center;
+          text-align: center;
+          padding: 20px 0 40px;
+        }
+
+        .hero-copy {
+          max-width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-copy p {
+          max-width: 100%;
+        }
+
+        .check-list {
+          width: 100%;
+          max-width: 360px;
+        }
+
+        .hero-visual {
+          justify-content: center;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+
+        .nav-links,
+        .nav-actions {
+          display: none;
+        }
+
+        .hamburger {
+          display: inline-flex;
+        }
+
+        .mobile-menu {
+          display: none;
+          margin-top: 12px;
+          padding: 16px;
+          border: 1px solid #e5e7eb;
+          border-radius: 12px;
+          background: #fff;
+          box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+        }
+
+        .mobile-menu.open {
+          display: block;
+        }
+
+        .mobile-menu ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .mobile-menu a {
+          color: #000;
+          font-size: 16px;
+          font-weight: 500;
+        }
+
+        .mobile-menu .stacked-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 12px;
+        }
+
+        .mobile-menu .stacked-actions button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="nav" aria-label="Main navigation">
+        <a href="#" class="brand" aria-label="Hulma home">
+          <img src="assets/logo.png" alt="Hulma logo" />
+          <span class="brand-text">Hulma</span>
+        </a>
+
+        <ul class="nav-links" aria-label="Main menu">
+          <li><a href="#">Templates</a></li>
+          <li><a href="#">AI Review</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+
+        <div class="nav-actions" aria-label="Account actions">
+          <button class="btn-login" type="button">Login</button>
+          <button class="btn-primary" type="button">Get started</button>
+        </div>
+
+        <button class="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="hamburger-bars" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </header>
+
+      <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile menu">
+        <ul>
+          <li><a href="#">Templates</a></li>
+          <li><a href="#">AI Review</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+        <div class="stacked-actions">
+          <button class="btn-login" type="button">Login</button>
+          <button class="btn-primary" type="button">Get started</button>
+        </div>
+      </div>
+
+      <main class="hero" aria-label="Hero section">
+        <div class="hero-copy">
+          <h1>
+            Create a Professional<br />
+            <span style="color:#1E6FD0;">Portfolio</span> with <span style="color:#1E6FD0;">AI</span>
+          </h1>
+
+          <p>
+            Build your portfolio faster with ready-made templates and AI-powered portfolio reviews that give you personalized suggestions to improve your content.
+          </p>
+
+          <ul class="check-list" aria-label="Feature list">
+            <li class="check-item">
+              <span class="check-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 10.5L8.2 13.7L15 6.9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>AI Review</span>
+            </li>
+            <li class="check-item">
+              <span class="check-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 10.5L8.2 13.7L15 6.9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Portfolio Suggestions</span>
+            </li>
+            <li class="check-item">
+              <span class="check-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 10.5L8.2 13.7L15 6.9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Professional Templates</span>
+            </li>
+            <li class="check-item">
+              <span class="check-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 10.5L8.2 13.7L15 6.9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Easy Customization</span>
+            </li>
+          </ul>
+
+          <button class="cta-btn" type="button">
+            Design a portfolio with AI <span class="cta-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <div class="hero-visual">
+          <div class="glow" aria-hidden="true"></div>
+          <div class="mascot-wrap" id="mascotWrap">
+            <img class="mascot-img" src="assets/mascot.png" alt="Hulma mascot waving" />
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      (function () {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Mobile menu
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (hamburger && mobileMenu) {
+          hamburger.addEventListener('click', function () {
+            const isOpen = mobileMenu.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', String(isOpen));
+          });
+        }
+
+        // Mascot parallax + float
+        const mascotWrap = document.getElementById('mascotWrap');
+        const hero = document.querySelector('.hero');
+
+        if (!prefersReducedMotion && mascotWrap && hero) {
+          let currentX = 0;
+          let currentY = 0;
+          let targetX = 0;
+          let targetY = 0;
+          let currentRotateX = 0;
+          let currentRotateY = 0;
+          let targetRotateX = 0;
+          let targetRotateY = 0;
+
+          hero.addEventListener('mousemove', function (event) {
+            const rect = hero.getBoundingClientRect();
+            const px = (event.clientX - rect.left) / rect.width;
+            const py = (event.clientY - rect.top) / rect.height;
+
+            targetX = (px - 0.5) * 30;
+            targetY = (py - 0.5) * 30;
+            targetRotateY = (px - 0.5) * 12;
+            targetRotateX = (0.5 - py) * 12;
+          });
+
+          hero.addEventListener('mouseleave', function () {
+            targetX = 0;
+            targetY = 0;
+            targetRotateX = 0;
+            targetRotateY = 0;
+          });
+
+          function animateParallax() {
+            currentX += (targetX - currentX) * 0.12;
+            currentY += (targetY - currentY) * 0.12;
+            currentRotateX += (targetRotateX - currentRotateX) * 0.12;
+            currentRotateY += (targetRotateY - currentRotateY) * 0.12;
+
+            mascotWrap.style.transform = 'translate(' + currentX + 'px, ' + currentY + 'px) rotateX(' + currentRotateX + 'deg) rotateY(' + currentRotateY + 'deg)';
+            requestAnimationFrame(animateParallax);
+          }
+
+          requestAnimationFrame(animateParallax);
+        }
+
+        // Mascot hover and click
+        if (mascotWrap) {
+          mascotWrap.addEventListener('mouseenter', function () {
+            if (prefersReducedMotion) return;
+            mascotWrap.style.transition = 'transform 0.25s ease';
+            mascotWrap.style.transform = (mascotWrap.style.transform || '') + ' scale(1.02)';
+          });
+
+          mascotWrap.addEventListener('mouseleave', function () {
+            if (prefersReducedMotion) return;
+            mascotWrap.style.transition = 'transform 0.25s ease';
+            mascotWrap.style.transform = mascotWrap.style.transform.replace(' scale(1.02)', '');
+          });
+
+          mascotWrap.addEventListener('click', function () {
+            if (prefersReducedMotion) return;
+            mascotWrap.animate([
+              { transform: mascotWrap.style.transform || 'translateY(0px)' },
+              { transform: (mascotWrap.style.transform || 'translateY(0px)') + ' translateY(-30px)' },
+              { transform: mascotWrap.style.transform || 'translateY(0px)' }
+            ], {
+              duration: 500,
+              easing: 'ease-out'
+            });
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
