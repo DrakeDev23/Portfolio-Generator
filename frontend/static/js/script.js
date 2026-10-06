@@ -64,11 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    const setActiveNav = (sectionId) => {
+    const setActiveNav = (activeKey) => {
       navLinks.forEach((link) => {
-        const href = link.getAttribute('href') || '';
-        const isActive = Boolean(sectionId && href === `#${sectionId}`);
-        link.classList.toggle('is-active', isActive);
+        const linkKey = link.dataset.navSection || '';
+        link.classList.toggle('is-active', linkKey === activeKey);
       });
     };
 
@@ -90,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (sectionVisibility.about) {
             setActiveNav('about');
           } else if (sectionVisibility['how-it-works']) {
-            setActiveNav('how-it-works');
+            setActiveNav('help');
           } else {
             setActiveNav(null);
           }
@@ -108,17 +107,43 @@ document.addEventListener('DOMContentLoaded', () => {
       const updateActiveFromScroll = () => {
         const offset = window.scrollY + 120;
         const sections = [aboutSection, howSection].filter(Boolean);
-        let activeId = null;
+        let activeKey = null;
         sections.forEach((section) => {
           if (section.offsetTop <= offset) {
-            activeId = section.id;
+            activeKey = section.id === 'about' ? 'about' : 'help';
           }
         });
-        setActiveNav(activeId);
+        setActiveNav(activeKey);
       };
 
       updateActiveFromScroll();
       window.addEventListener('scroll', updateActiveFromScroll, { passive: true });
+    }
+
+    const revealElements = document.querySelectorAll('[data-reveal], .reveal-on-scroll');
+
+    if (revealElements.length) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -6% 0px'
+      });
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+
+      if (siteHeader) {
+        requestAnimationFrame(() => {
+          siteHeader.classList.add('is-visible');
+        });
+      }
     }
 
     const mascotWrap = document.getElementById('mascotWrap');

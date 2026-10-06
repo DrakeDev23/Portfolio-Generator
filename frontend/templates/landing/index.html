@@ -3,8 +3,8 @@
 {% block title %}Hulma{% endblock %}
 
 {% block content %}
-<main class="landing-shell mx-auto max-w-[1200px] px-6 pb-10 pt-4 md:px-10 md:pb-16 lg:pt-6">
-  <section class="flex min-h-[calc(100vh-88px)] flex-col items-center justify-center gap-10 lg:flex-row lg:justify-between lg:gap-10" data-hero>
+<main data-reveal="hero" class="landing-shell mx-auto max-w-[1200px] px-6 pb-10 pt-4 md:px-10 md:pb-16 lg:pt-6">
+  <section data-reveal="hero" class="flex min-h-[calc(100vh-88px)] flex-col items-center justify-center gap-10 lg:flex-row lg:justify-between lg:gap-10" data-hero>
     <div class="w-full max-w-[560px] text-center lg:text-left">
      
       <h1 class="text-[2.35rem] font-black leading-[1.08] tracking-[-0.06em] text-black sm:text-[2.7rem] md:text-[3.8rem] lg:text-[4.2rem]">
@@ -72,22 +72,22 @@
 
 <section id="about" class="scroll-mt-24 bg-[#F5F9FF] py-20 md:py-24">
   <div class="landing-shell mx-auto grid max-w-[1200px] grid-cols-1 gap-6 px-6 md:px-10 lg:grid-cols-[1.15fr_1fr]">
-    <div class="rounded-[24px] border border-[#E6EEF8] bg-white p-8 shadow-[0_10px_30px_rgba(15,23,42,0.05)] transition-shadow duration-300 ease-out hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] md:p-9">
+    <div data-reveal="about" class="rounded-[24px] border border-[#E6EEF8] bg-white p-8 shadow-[0_10px_30px_rgba(15,23,42,0.05)] transition-shadow duration-300 ease-out hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] md:p-9">
       <span class="inline-block rounded-full bg-[#E8F1FD] px-3.5 py-1.5 text-[15px] font-semibold text-[#1E5FAF]">About hulma</span>
       <h2 class="mt-[22px] text-[40px] font-bold leading-[1.15] text-[#0F172A]">Shape your portfolio<br>with confidence.</h2>
       <div class="mt-[18px] max-w-[340px] text-[14px] leading-[1.4] text-[#1E6FD0]">A guided workflow that helps you build a polished portfolio faster.</div>
       <p class="mt-[22px] text-[22px] leading-[1.35] text-[#475569]">Hulma helps you create a professional portfolio through customizable templates and AI-powered reviews. Build your portfolio with a design that fits you, then get useful suggestions to improve your content.</p>
       <div class="mt-[28px] text-xs font-bold text-[#0F172A]">What you get</div>
       <ul class="mt-[10px] list-none p-0">
-        <li class="about-list-item flex items-center gap-3 text-xs text-[#475569] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#1E6FD0] before:content-['']">AI Review</li>
-        <li class="about-list-item flex items-center gap-3 text-xs text-[#475569] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#1E6FD0] before:content-['']">Portfolio Suggestions</li>
-        <li class="about-list-item flex items-center gap-3 text-xs text-[#475569] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#1E6FD0] before:content-['']">Professional Templates</li>
-        <li class="about-list-item flex items-center gap-3 text-xs text-[#475569] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#1E6FD0] before:content-['']">Easy Customization</li>
+        <li class="about-list-item reveal-on-scroll flex items-center gap-3 text-xs text-[#475569] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#1E6FD0] before:content-['']">AI Review</li>
+        <li class="about-list-item reveal-on-scroll flex items-center gap-3 text-xs text-[#475569] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#1E6FD0] before:content-['']">Portfolio Suggestions</li>
+        <li class="about-list-item reveal-on-scroll flex items-center gap-3 text-xs text-[#475569] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#1E6FD0] before:content-['']">Professional Templates</li>
+        <li class="about-list-item reveal-on-scroll flex items-center gap-3 text-xs text-[#475569] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#1E6FD0] before:content-['']">Easy Customization</li>
       </ul>
     </div>
 
     <div class="about-step-column flex flex-col">
-      <article class="about-step-card group relative cursor-pointer overflow-hidden border border-[#E6EEF8] bg-white p-[22px_24px] shadow-[0_4px_14px_rgba(15,23,42,0.04)] transition-all duration-300 ease-out motion-safe:hover:-translate-y-1 hover:border-[#4169E1] hover:shadow-[0_16px_32px_rgba(65,105,225,0.18)] focus-visible:border-[#4169E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-1" tabindex="0">
+      <article data-reveal="card" class="about-step-card group relative cursor-pointer overflow-hidden border border-[#E6EEF8] bg-white p-[22px_24px] shadow-[0_4px_14px_rgba(15,23,42,0.04)] transition-all duration-300 ease-out motion-safe:hover:-translate-y-1 hover:border-[#4169E1] hover:shadow-[0_16px_32px_rgba(65,105,225,0.18)] focus-visible:border-[#4169E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-1" tabindex="0">
         <div class="step-accent absolute left-0 top-0 h-full w-1 origin-top scale-y-0 transition-transform duration-300 ease-out group-hover:scale-y-100"></div>
         <div class="flex items-center gap-4">
           <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-[#E6F0FF] text-[14px] font-bold text-[#1E5FAF] transition-all duration-300 ease-out motion-safe:group-hover:scale-110 group-hover:bg-[#4169E1] group-hover:text-white">01</div>
@@ -99,7 +99,7 @@
         <div class="about-step-copy text-xs leading-[1.5] text-[#475569] transition-colors duration-300 group-hover:text-[#334155]">Browse clean layouts designed for clarity, then pick the one that best matches your role, tone, and visual style.</div>
       </article>
 
-      <article class="about-step-card group relative cursor-pointer overflow-hidden border border-[#E6EEF8] bg-white p-[22px_24px] shadow-[0_4px_14px_rgba(15,23,42,0.04)] transition-all duration-300 ease-out motion-safe:hover:-translate-y-1 hover:border-[#4169E1] hover:shadow-[0_16px_32px_rgba(65,105,225,0.18)] focus-visible:border-[#4169E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-1" tabindex="0">
+      <article class="about-step-card reveal-on-scroll group relative cursor-pointer overflow-hidden border border-[#E6EEF8] bg-white p-[22px_24px] shadow-[0_4px_14px_rgba(15,23,42,0.04)] transition-all duration-300 ease-out motion-safe:hover:-translate-y-1 hover:border-[#4169E1] hover:shadow-[0_16px_32px_rgba(65,105,225,0.18)] focus-visible:border-[#4169E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-1" tabindex="0">
         <div class="step-accent absolute left-0 top-0 h-full w-1 origin-top scale-y-0 transition-transform duration-300 ease-out group-hover:scale-y-100"></div>
         <div class="flex items-center gap-4">
           <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-[#E6F0FF] text-[14px] font-bold text-[#1E5FAF] transition-all duration-300 ease-out motion-safe:group-hover:scale-110 group-hover:bg-[#4169E1] group-hover:text-white">02</div>
@@ -111,7 +111,7 @@
         <div class="about-step-copy text-xs leading-[1.5] text-[#475569] transition-colors duration-300 group-hover:text-[#334155]">Add projects, experience, and skills in a structured flow that keeps your story organized and easy to scan.</div>
       </article>
 
-      <article class="about-step-card group relative cursor-pointer overflow-hidden border border-[#E6EEF8] bg-white p-[22px_24px] shadow-[0_4px_14px_rgba(15,23,42,0.04)] transition-all duration-300 ease-out motion-safe:hover:-translate-y-1 hover:border-[#4169E1] hover:shadow-[0_16px_32px_rgba(65,105,225,0.18)] focus-visible:border-[#4169E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-1" tabindex="0">
+      <article class="about-step-card reveal-on-scroll group relative cursor-pointer overflow-hidden border border-[#E6EEF8] bg-white p-[22px_24px] shadow-[0_4px_14px_rgba(15,23,42,0.04)] transition-all duration-300 ease-out motion-safe:hover:-translate-y-1 hover:border-[#4169E1] hover:shadow-[0_16px_32px_rgba(65,105,225,0.18)] focus-visible:border-[#4169E1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-1" tabindex="0">
         <div class="step-accent absolute left-0 top-0 h-full w-1 origin-top scale-y-0 transition-transform duration-300 ease-out group-hover:scale-y-100"></div>
         <div class="flex items-center gap-4">
           <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-[#E6F0FF] text-[14px] font-bold text-[#1E5FAF] transition-all duration-300 ease-out motion-safe:group-hover:scale-110 group-hover:bg-[#4169E1] group-hover:text-white">03</div>
@@ -126,7 +126,7 @@
   </div>
 </section>
 
-<section id="how-it-works" class="how-section relative w-full scroll-mt-24 overflow-hidden py-20 md:py-24">
+<section id="how-it-works" data-reveal="steps" class="how-section relative w-full scroll-mt-24 overflow-hidden py-20 md:py-24">
   <div class="pointer-events-none absolute inset-0 z-0">
     <div class="absolute -right-10 top-0 h-96 w-96 rounded-full bg-blue-300/30 blur-3xl"></div>
     <div class="absolute -left-10 bottom-0 h-80 w-80 rounded-full bg-indigo-300/20 blur-3xl"></div>
@@ -147,7 +147,7 @@
       <div class="pointer-events-none absolute left-[15px] top-0 block h-full w-[3px] bg-brand-line/30 md:hidden"></div>
 
       <ol class="relative grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-6 lg:gap-6">
-        <li class="group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
+        <li class="reveal-on-scroll group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
           <div class="relative z-10 mb-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-[#2F6FE4] bg-white text-[11px] font-bold text-[#2F6FE4] transition-all duration-300 ease-out motion-safe:group-hover:scale-125 group-hover:bg-[#2F6FE4] group-hover:text-white group-hover:shadow-[0_0_0_6px_rgba(47,111,228,0.2)] motion-safe:animate-ringPulse">
             1
           </div>
@@ -157,7 +157,7 @@
           <p class="mt-3 text-[13px] leading-snug text-slate-700 transition-colors duration-300 group-hover:text-black">Enter your details, skills, projects, education, and experience. Hulma uses your information to build the foundation of your portfolio.</p>
         </li>
 
-        <li class="group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
+        <li class="reveal-on-scroll group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
           <div class="relative z-10 mb-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-[#2F6FE4] bg-white text-[11px] font-bold text-[#2F6FE4] transition-all duration-300 ease-out motion-safe:group-hover:scale-125 group-hover:bg-[#2F6FE4] group-hover:text-white group-hover:shadow-[0_0_0_6px_rgba(47,111,228,0.2)] motion-safe:animate-ringPulse">
             2
           </div>
@@ -167,7 +167,7 @@
           <p class="mt-3 text-[13px] leading-snug text-slate-700 transition-colors duration-300 group-hover:text-black">Let Hulma's AI organize your content and create a polished portfolio structure based on the information you provide.</p>
         </li>
 
-        <li class="group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
+        <li class="reveal-on-scroll group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
           <div class="relative z-10 mb-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-[#2F6FE4] bg-white text-[11px] font-bold text-[#2F6FE4] transition-all duration-300 ease-out motion-safe:group-hover:scale-125 group-hover:bg-[#2F6FE4] group-hover:text-white group-hover:shadow-[0_0_0_6px_rgba(47,111,228,0.2)] motion-safe:animate-ringPulse">
             3
           </div>
@@ -177,7 +177,7 @@
           <p class="mt-3 text-[13px] leading-snug text-slate-700 transition-colors duration-300 group-hover:text-black">Pick a template that fits your style. Your content will be arranged automatically so you can preview your portfolio instantly.</p>
         </li>
 
-        <li class="group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
+        <li class="reveal-on-scroll group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
           <div class="relative z-10 mb-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-[#2F6FE4] bg-white text-[11px] font-bold text-[#2F6FE4] transition-all duration-300 ease-out motion-safe:group-hover:scale-125 group-hover:bg-[#2F6FE4] group-hover:text-white group-hover:shadow-[0_0_0_6px_rgba(47,111,228,0.2)] motion-safe:animate-ringPulse">
             4
           </div>
@@ -187,7 +187,7 @@
           <p class="mt-3 text-[13px] leading-snug text-slate-700 transition-colors duration-300 group-hover:text-black">Edit your text, colors, fonts, images, and sections to make the portfolio your own.</p>
         </li>
 
-        <li class="group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
+        <li class="reveal-on-scroll group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
           <div class="relative z-10 mb-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-[#2F6FE4] bg-white text-[11px] font-bold text-[#2F6FE4] transition-all duration-300 ease-out motion-safe:group-hover:scale-125 group-hover:bg-[#2F6FE4] group-hover:text-white group-hover:shadow-[0_0_0_6px_rgba(47,111,228,0.2)] motion-safe:animate-ringPulse">
             5
           </div>
@@ -197,7 +197,7 @@
           <p class="mt-3 text-[13px] leading-snug text-slate-700 transition-colors duration-300 group-hover:text-black">Use AI Review to get suggestions for improving your portfolio's content, structure, and presentation.</p>
         </li>
 
-        <li class="group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
+        <li class="reveal-on-scroll group relative -m-4 cursor-pointer rounded-2xl p-4 transition-all duration-300 ease-out motion-safe:hover:-translate-y-2 hover:bg-white hover:shadow-xl hover:shadow-blue-500/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1] motion-safe:focus-visible:-translate-y-2" tabindex="0">
           <div class="relative z-10 mb-10 flex h-8 w-8 items-center justify-center rounded-full border-4 border-[#2F6FE4] bg-white text-[11px] font-bold text-[#2F6FE4] transition-all duration-300 ease-out motion-safe:group-hover:scale-125 group-hover:bg-[#2F6FE4] group-hover:text-white group-hover:shadow-[0_0_0_6px_rgba(47,111,228,0.2)] motion-safe:animate-ringPulse">
             6
           </div>
@@ -218,7 +218,7 @@
   </div>
 </section>
 
-<footer id="contact" class="w-full bg-[#EAF6FF]">
+<footer id="contact" data-reveal="footer" class="w-full bg-[#EAF6FF]">
   <div class="mx-auto max-w-[1200px] px-6 pb-6 pt-14 md:px-10">
     <div class="grid items-start gap-10 text-left md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.5fr] lg:gap-12">
       <div>
@@ -288,7 +288,7 @@
             <a href="#about" class="relative inline-block cursor-pointer transition-all duration-300 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-[#4169E1] after:transition-all after:duration-300 hover:text-[#4169E1] hover:after:w-full motion-safe:hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1]">About</a>
           </li>
           <li>
-            <a href="#about" class="relative inline-block cursor-pointer transition-all duration-300 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-[#4169E1] after:transition-all after:duration-300 hover:text-[#4169E1] hover:after:w-full motion-safe:hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1]">Help</a>
+            <a href="#how-it-works" class="relative inline-block cursor-pointer transition-all duration-300 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-[#4169E1] after:transition-all after:duration-300 hover:text-[#4169E1] hover:after:w-full motion-safe:hover:translate-x-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4169E1]">Help</a>
           </li>
         </ul>
       </div>
