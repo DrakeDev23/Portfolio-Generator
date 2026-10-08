@@ -80,3 +80,16 @@
 
 [data-reveal='footer'] {
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .step-line {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms ease-out;
+    transition-delay: inherit;
+  }
+
+  .reveal-on-scroll.is-visible .step-line {
+    transform: scaleX(1);
+  }
+}

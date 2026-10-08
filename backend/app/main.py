@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
-from app.routers import landing
+from app.routers import landing, auth
 
 load_dotenv()
 
@@ -25,6 +25,7 @@ app.mount(
 )
 
 app.include_router(landing.router)
+app.include_router(auth.router)
 
 
 @app.get("/health")
