@@ -1,19 +1,17 @@
+.git
+.gitignore
 .env
 .env.*
 !.env.example
 
-# Python
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
 .venv/
 venv/
-
-# Node
 node_modules/
 frontend/node_modules/
-
-# Docker
-*.log
-
-# OS
+.pytest_cache/
+.mypy_cache/
 .DS_Store

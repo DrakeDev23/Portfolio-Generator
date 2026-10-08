@@ -2,6 +2,64 @@
 
 **Hulma** is an AI-powered portfolio template generator that helps users create and manage their portfolio using reusable templates. Users can switch between portfolio templates while keeping their saved portfolio content, with AI assistance available for portfolio review and suggestions.
 
+## Running Hulma with Docker
+
+The easiest way to run Hulma for team development is with Docker. This keeps Python, PostgreSQL, Node.js, npm, Tailwind CSS, and project dependencies inside containers so contributors do not need to install them locally.
+
+### 1. Install Docker
+
+Install Docker Desktop or Docker Engine for your operating system.
+
+### 2. Clone Hulma
+
+```bash
+git clone <repo-url>
+cd hulma
+```
+
+### 3. Configure environment
+
+Copy the example environment file and update values if needed:
+
+```bash
+cp .env.example .env
+```
+
+The default values are set for the local Docker environment. Update the API keys as needed:
+
+- `GROQ_API_KEY`
+- `GEMINI_API_KEY`
+
+### 4. Start Hulma
+
+```bash
+docker compose up --build
+```
+
+This starts the PostgreSQL service, builds the FastAPI app, and runs Tailwind in watch mode for the Jinja templates.
+
+### 5. Open the application
+
+```text
+http://localhost:8000
+```
+
+### 6. Stop Hulma
+
+```bash
+docker compose down
+```
+
+### 7. Delete the local database
+
+Only use this if you intentionally want to delete the local PostgreSQL data volume:
+
+```bash
+docker compose down -v
+```
+
+> Warning: `-v` removes the Docker database volume and all stored PostgreSQL data.
+
 ## Tech Stack
 
 ### Backend
