@@ -1,0 +1,60 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-hulma}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me}
+      POSTGRES_DB: ${POSTGRES_DB:-hulma}
+    volumes:
+      - hulma_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - hulma-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app/backend
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql://hulma:change_me@db:5432/hulma}
+      POSTGRES_HOST: ${POSTGRES_HOST:-db}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - hulma-network
+
+  tailwind:
+    image: node:22-alpine
+    working_dir: /workspace/frontend
+    command: sh -c "npm install && npm run dev"
+    volumes:
+      - .:/workspace
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    networks:
+      - hulma-network
+
+volumes:
+  hulma_postgres_data:
+
+networks:
+  hulma-network:
+    driver: bridge
